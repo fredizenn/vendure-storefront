@@ -30,13 +30,13 @@
     class=""
   >
     <img
-      class="object-cover rounded-2xl"
+      class="object-cover card rounded-sm"
       src={`${$frag?.productAsset.preview}?w=200&h=200`}
       alt={$frag?.productName}
     />
   </a>
   <p class="xl:text-center">{$frag?.productName}</p>
-  <p class="xl:text-center text-primary">
+  <p class="xl:text-center font-bold text-gray-600">
     {formatCurrency($frag?.priceWithTax.max) || 0}
   </p>
 </section>

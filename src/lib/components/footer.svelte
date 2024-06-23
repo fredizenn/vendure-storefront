@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import Facebook from './icons/facebook.svelte'
 	import Twitter from './icons/twitter.svelte'
 	import YouTube from './icons/you-tube.svelte'
@@ -97,4 +97,4 @@
 			</p>
 		</div>
 	</div>
-</footer>
+</footer> -->

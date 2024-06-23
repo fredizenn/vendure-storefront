@@ -6,13 +6,19 @@ export const formatCurrency = (value: number) => {
   const majorUnits = value / 100
 
   const locale = get(userLocale) ?? 'en-US'
-  const currency = get(currencyCode) ?? 'USD'
+  const currency = get(currencyCode) ?? 'GHS'
 
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: currency,
   }).format(majorUnits)
 }
+
+export const toCurrencyFormat = (value: number) =>
+  value?.toLocaleString('en-GH', {
+    style: 'currency',
+    currency: 'GHS',
+  })
 
 // https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7
 /** Dispatch event on click outside of node */

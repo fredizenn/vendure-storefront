@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { AddToCartStore, graphql } from '$houdini'
-  import { formatCurrency } from '$lib/utils'
+  import Breadcrumbs from '$components/breadcrumbs.svelte'
+import { AddToCartStore, graphql } from '$houdini'
+  import { formatCurrency, toCurrencyFormat } from '$lib/utils'
 
   import type { PageData } from './$houdini'
 
@@ -45,23 +46,9 @@
 
 {#if product}
   <div class="my-5">
+    <Breadcrumbs {breadcrumbs} />
     <!-- TODO -->
-    {#each breadcrumbs as breadcrumb}
-      {#if breadcrumb.slug === '__root_collection__'}
-        <a
-          class="link link-primary mr-2"
-          href="/">Home</a
-        >
-      {:else}
-        <span class="before:mr-2 before:content-['/']" />
-        <a
-          class="link link-primary mr-2"
-          href={`/category/${breadcrumb.slug}`}
-        >
-          {breadcrumb.name}
-        </a>
-      {/if}
-    {/each}
+   
   </div>
 
   <div class="flex">
@@ -95,7 +82,7 @@
           <p
             class="inline-block align-bottom text-2xl text-neutral mr-4"
           >
-            {formatCurrency(
+            {toCurrencyFormat(
               selected?.priceWithTax ||
                 product.variants[0].priceWithTax
             ) || 0}
@@ -106,12 +93,12 @@
               min="0"
               max="99"
               placeholder="1"
-              class="input input-primary input-bordered caret-primary"
+              class="input input-bordered input-secondary w-16"
               bind:value={quantity}
             />
             <button
               on:click={addToCart}
-              class="rounded-lg btn btn-primary"
+              class="rounded-lg btn bg-slate-800 text-white"
             >
               Add To Cart
             </button>

@@ -7,7 +7,7 @@
 >
   {#each collections as collection}
     <a href={`/category/${collection.slug}`}>
-      <div class="card shadow-xl image-full">
+      <div class="card card-normal shadow-xl image-full">
         <figure>
           <img
             class="object-cover"
@@ -15,8 +15,8 @@
             alt={collection.name}
           />
         </figure>
-        <div class="justify-end card-body p-5">
-          <h2 class="text-xl lg:text-3xl font-bold tracking-widest">
+        <div class="justify-end rounded-none card-body p-5">
+          <h2 class="text-lg  font-bold">
             {collection.name}
           </h2>
         </div>

@@ -3,6 +3,8 @@
   import { cubicOut } from 'svelte/easing'
   import { tweened } from 'svelte/motion'
   import MagnifyingGlass from './icons/magnifying-glass.svelte'
+	import { Input } from 'flowbite-svelte'
+	import Icon from '@iconify/svelte'
 
   let searchTerm = ''
 
@@ -23,7 +25,7 @@
 >
   <label class="sr-only" for="search_product">Search</label>
   <div class="relative">
-    <input
+    <Input
       class="h-auto input input-primary input-bordered bg-base-200 text-base-content caret-primary"
       placeholder="Search"
       name="search_product"
@@ -39,5 +41,5 @@
   }}
   class="btn btn-square btn-ghost"
 >
-  <MagnifyingGlass />
+  <Icon icon="bx:search" class="h-6 w-6"/>
 </button>

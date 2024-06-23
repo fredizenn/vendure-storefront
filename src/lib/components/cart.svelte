@@ -8,7 +8,7 @@
 		graphql,
 	} from '$houdini'
 
-	import { clickOutside, formatCurrency } from '$lib/utils'
+	import { clickOutside, formatCurrency, toCurrencyFormat } from '$lib/utils'
 	import { cartOpen } from '$stores/cart'
 	import { fly } from 'svelte/transition'
 	import Minus from './icons/minus.svelte'
@@ -88,7 +88,7 @@
 		on:click_outside={handleClickOutside}
 		in:fly={{ x: 200, duration: 150 }}
 		out:fly={{ x: 400, duration: 150 }}
-		class="px-8 pt-4 top-0 right-0 fixed bg-base-100 shadow-xl h-full w-[30rem] z-40"
+		class="px-8 pt-4 top-0 right-0 fixed bg-white shadow-xl h-full w-[30rem] z-40"
 	>
 		<div class="flex justify-between align-middle text-3xl">
 			<button
@@ -115,7 +115,7 @@
 					<p class="text-xl pb-1">{item.productVariant.name}</p>
 					<div class="flex align-center justify-between">
 						<p>
-							{formatCurrency(item.unitPriceWithTax) || 0}
+							{toCurrencyFormat(item.unitPriceWithTax) || 0}
 						</p>
 						<div>
 							<button
@@ -138,7 +138,7 @@
 							</button>
 						</div>
 						<p>
-							{formatCurrency(item.linePriceWithTax) || 0}
+							{toCurrencyFormat(item.linePriceWithTax) || 0}
 						</p>
 					</div>
 				</div>
